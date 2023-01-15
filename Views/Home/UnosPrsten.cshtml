@@ -1,0 +1,111 @@
+﻿@model ProjekatPSA.Models.Prsten
+
+
+@{
+    ViewBag.Title = "UnosPrsten";
+}
+
+<div>
+    <h2 style="font-size:40px">Unos novog prstena</h2>
+</div>
+
+@using (Html.BeginForm("UnosPrsten", "Home", FormMethod.Post,
+    new { @class = "forma-proizvod" }))
+{
+<div>
+    <label>Naziv prstena:</label>
+    @Html.TextBoxFor(x => x.Naziv)
+
+    <label>Proizvođač:</label>
+    @Html.DropDownListFor(x => x.Proizvodjac, new[] {
+    new SelectListItem()
+    {
+        Text = "Pandora",
+        Value= "Pandora"
+    },
+    new SelectListItem()
+    {
+        Text = "Spenderella",
+        Value= "Spenderella"
+    },
+    new SelectListItem()
+    {
+        Text = "P.S.",
+        Value= "P.S."
+    },
+    new SelectListItem()
+    {
+        Text = "Celje",
+        Value= "Celje"
+    }
+})
+
+    <label>Kamen:</label>
+    @Html.DropDownListFor(x => x.Kamenje, new[] {
+    new SelectListItem()
+    {
+        Text = "Cirkon",
+        Value= "Cirkon"
+    },
+    new SelectListItem()
+    {
+        Text = "Dijamant",
+        Value= "Dijamant"
+    },
+    new SelectListItem()
+    {
+        Text = "Rubin",
+        Value= "Rubin"
+    },
+    new SelectListItem()
+    {
+        Text = "Smaragd",
+        Value= "Smaragd"
+    }
+})
+
+    <label>Materijal:</label>
+    @Html.DropDownListFor(x => x.Materijal, new[] {
+    new SelectListItem()
+    {
+        Text = "Srebro",
+        Value= "Srebro"
+    },
+    new SelectListItem()
+    {
+        Text = "Zlato",
+        Value= "Zlato"
+    },
+    new SelectListItem()
+    {
+        Text = "Belo zlato",
+        Value= "Belo zlato"
+    }
+})
+
+    <label>Cena prstena:</label>
+    @Html.TextBoxFor(x => x.Cena)
+
+    <label>Popust:</label>
+    @Html.TextBoxFor(x => x.Popust)
+
+
+</div>
+    <hr />
+    <div>
+        <label>Način plaćanja:</label>
+        <label>@Html.RadioButtonFor(x => x.NacinPlacanja, "Pouzećem (keš)") Pouzećem(Keš)</label>
+        <label>@Html.RadioButtonFor(x => x.NacinPlacanja, "Plaćanje karticom onlajn") Plaćanje karticom onlajn</label>
+        <label>@Html.RadioButtonFor(x => x.NacinPlacanja, "12 rata") 12 rata</label>
+        <label>@Html.RadioButtonFor(x => x.NacinPlacanja, "24 rate") 24 rate</label>
+        <label>@Html.RadioButtonFor(x => x.NacinPlacanja, "48 rata") 48 rata</label>
+
+        <hr />
+
+        <label>Opis proizvoda:</label>
+        <label>@Html.TextAreaFor(x => x.Opis)</label>
+    </div>
+
+    <input type="submit" class="btn-default" value="Potvrdi" />
+}
+

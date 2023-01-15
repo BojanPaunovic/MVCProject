@@ -1,0 +1,121 @@
+﻿@model ProjekatPSA.Models.Sat
+
+
+@{
+    ViewBag.Title = "UnosSatovi";
+}
+
+<div>
+    <h2 style="font-size:40px">Unos novog sata</h2>
+</div>
+
+@using (Html.BeginForm("UnosSatovi", "Home", FormMethod.Post,
+    new { @class="forma-proizvod" }))
+{
+<div>
+    <label>Naziv sata:</label>
+    @Html.TextBoxFor(x => x.Naziv)
+
+    <label>Proizvođač:</label>
+    @Html.DropDownListFor(x => x.Proizvodjac, new[] {
+    new SelectListItem()
+    {
+        Text = "Hugo Boss",
+        Value= "Hugo Boss"
+    },
+    new SelectListItem()
+    {
+        Text = "Seiko",
+        Value= "Seiko"
+    },
+    new SelectListItem()
+    {
+        Text = "Casio",
+        Value= "Casio"
+    },
+    new SelectListItem()
+    {
+        Text = "Festina",
+        Value= "Festina"
+    }
+})
+    <label>Stil:</label>
+    @Html.DropDownListFor(x => x.StilSata, new[] {
+    new SelectListItem()
+    {
+        Text = "Sportski",
+        Value= "Sportski"
+    },
+    new SelectListItem()
+    {
+        Text = "Elegantan",
+        Value= "Elegantan"
+    },
+    new SelectListItem()
+    {
+        Text = "Ronilacki",
+        Value= "Ronilacki"
+    },
+    new SelectListItem()
+    {
+        Text = "Pilotski",
+        Value= "Pilotski"
+    }
+})
+    <label>Tip narukvice:</label>
+    @Html.DropDownListFor(x => x.TipNarukvice, new[] {
+    new SelectListItem()
+    {
+        Text = "Nerđajući čelik",
+        Value= "Nerdjajuci celik"
+    },
+    new SelectListItem()
+    {
+        Text = "Silikonska",
+        Value= "Silikonska"
+    },
+    new SelectListItem()
+    {
+        Text = "Kožna",
+        Value= "Kozna"
+    }
+})
+    <label>Tip prikaza na satu:</label>
+    @Html.DropDownListFor(x => x.TipPrikaza, new[] {
+    new SelectListItem()
+    {
+        Text = "Analogni",
+        Value= "Analogni"
+    },
+    new SelectListItem()
+    {
+        Text = "Digitalni",
+        Value= "Digitalni"
+    }
+})
+
+    <label>Cena sata:</label>
+    @Html.TextBoxFor(x => x.Cena)
+
+    <label>Popust:</label>
+    @Html.TextBoxFor(x => x.Popust)
+
+
+</div>
+<hr />
+<div>
+    <label>Način plaćanja:</label>
+    <label>@Html.RadioButtonFor(x => x.NacinPlacanja, "Pouzećem (keš)") Pouzećem(Keš)</label>
+    <label>@Html.RadioButtonFor(x => x.NacinPlacanja, "Plaćanje karticom onlajn") Plaćanje karticom onlajn</label>
+    <label>@Html.RadioButtonFor(x => x.NacinPlacanja, "12 rata") 12 rata</label>
+    <label>@Html.RadioButtonFor(x => x.NacinPlacanja, "24 rate") 24 rate</label>
+    <label>@Html.RadioButtonFor(x => x.NacinPlacanja, "48 rata") 48 rata</label>
+
+    <hr />
+
+    <label>Opis proizvoda:</label>
+    <label>@Html.TextAreaFor(x => x.Opis)</label>
+</div>
+
+<input type="submit" class="btn-default" value="Potvrdi"/>
+}

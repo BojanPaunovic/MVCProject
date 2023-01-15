@@ -1,0 +1,24 @@
+﻿@model ProjekatPSA.Models.Sat
+@using ProjekatPSA.helperi;
+
+@{
+    ViewBag.Title = "PrikazSata";
+}
+
+<div class="formaPrikaz">
+    <h2>Proizvođač: @Model.Proizvodjac</h2>
+    <h2>Naziv proizvoda: @Model.Naziv</h2>
+    <hr />
+    <h2>Stil sata: @Model.StilSata</h2>
+    <h2>Tip narukvice: @Model.TipNarukvice</h2>
+    <h2>Tip prikaza: @Model.TipPrikaza</h2>
+    <hr />
+    <h2>Cena: </h2>
+    @Helperi.popustHelper(Model.Cena, Model.Popust)
+    <hr />
+    <h2>Popust: @Model.Popust %</h2>
+    <h2>Nacin plaćanja: @Model.NacinPlacanja</h2>
+
+    <p>@Model.Opis</p>
+</div>
+

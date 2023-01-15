@@ -1,0 +1,87 @@
+﻿@model ProjekatPSA.Models.Ogrlica
+
+@{
+    ViewBag.Title = "UnosOgrlica";
+}
+
+<div>
+    <h2 style="font-size:40px">Unos nove ogrlice</h2>
+</div>
+
+
+@using (Html.BeginForm("UnosOgrlica", "Home", FormMethod.Post,
+    new { @class = "forma-proizvod" }))
+{
+    <div>
+        <label>Naziv ogrlice:</label>
+        @Html.TextBoxFor(x => x.Naziv)
+
+        <label>Proizvođač:</label>
+        @Html.DropDownListFor(x => x.Proizvodjac, new[] {
+        new SelectListItem()
+        {
+            Text = "Pandora",
+            Value= "Pandora"
+        },
+        new SelectListItem()
+        {
+            Text = "Oliver Weber",
+            Value= "Oliver Weber"
+        },
+        new SelectListItem()
+        {
+            Text = "Majorica",
+            Value= "Majorica"
+        },
+        new SelectListItem()
+        {
+            Text = "Luca Barra",
+            Value= "Luca Barra"
+        }
+    })
+        <label>Materijal:</label>
+        @Html.DropDownListFor(x => x.Materijal, new[] {
+        new SelectListItem()
+        {
+            Text = "Srebro",
+            Value= "Srebro"
+        },
+        new SelectListItem()
+        {
+            Text = "Zlato",
+            Value= "Zlato"
+        },
+        new SelectListItem()
+        {
+            Text = "Hirurski celik",
+            Value= "Hirurski celik"
+        }
+    })
+        
+
+        <label>Cena ogrlice:</label>
+        @Html.TextBoxFor(x => x.Cena)
+
+        <label>Popust:</label>
+        @Html.TextBoxFor(x => x.Popust)
+
+
+    </div>
+    <hr />
+    <div>
+        <label>Način plaćanja:</label>
+        <label>@Html.RadioButtonFor(x => x.NacinPlacanja, "Pouzećem (keš)") Pouzećem(Keš)</label>
+        <label>@Html.RadioButtonFor(x => x.NacinPlacanja, "Plaćanje karticom onlajn") Plaćanje karticom onlajn</label>
+        <label>@Html.RadioButtonFor(x => x.NacinPlacanja, "12 rata") 12 rata</label>
+        <label>@Html.RadioButtonFor(x => x.NacinPlacanja, "24 rate") 24 rate</label>
+        <label>@Html.RadioButtonFor(x => x.NacinPlacanja, "48 rata") 48 rata</label>
+
+        <hr />
+
+        <label>Opis proizvoda:</label>
+        <label>@Html.TextAreaFor(x => x.Opis)</label>
+    </div>
+
+    <input type="submit" class="btn-default" value="Potvrdi" />
+}
+
